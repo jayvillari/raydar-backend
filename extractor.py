@@ -83,7 +83,12 @@ if "page not found" not in soup.title.text.lower():
     print("The page is found!")
     event_date = today
 else:
-    print("The page is NOT found!")
+    print(
+        "The page is NOT found! URL Today: "
+        + todaysURL
+        + " URL Yesterday: "
+        + yesterdaysURL
+    )
     page = requests.get(yesterdaysURL)
     soup = BeautifulSoup(page.content, "html.parser")
     event_date = yesterday
